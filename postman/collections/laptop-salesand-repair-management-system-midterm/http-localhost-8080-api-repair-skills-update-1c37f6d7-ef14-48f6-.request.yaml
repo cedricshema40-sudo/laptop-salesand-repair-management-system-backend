@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/update/1c37f6d7-ef14-48f6-aff1-d5e275f505e0
+description: ""
+url: http://localhost:8080/api/repair-skills/update/1c37f6d7-ef14-48f6-aff1-d5e275f505e0
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Screen Replacement\"\r
+
+    }"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 9000

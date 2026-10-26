@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/workbenches/delete/9d8e3eec-08c1-48e7-ad33-52adc0b9464f
+description: A2 - Workbenches - Delete
+url: http://localhost:8080/api/workbenches/delete/9d8e3eec-08c1-48e7-ad33-52adc0b9464f
+method: DELETE
+order: 19000

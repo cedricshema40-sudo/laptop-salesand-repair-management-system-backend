@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:8080/api/customers/save
+description: ""
+url: http://localhost:8080/api/customers/save
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"firstName\": \"Diane\",\r
+
+    \  \"lastName\": \"Mukamana\",\r
+
+    \  \"phone\": \"0788123460\",\r
+
+    \  \"email\": \"diane.mukamana@example.com\"\r
+
+    }"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 6000

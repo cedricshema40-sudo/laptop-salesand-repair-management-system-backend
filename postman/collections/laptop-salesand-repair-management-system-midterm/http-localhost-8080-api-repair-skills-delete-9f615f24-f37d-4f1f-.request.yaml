@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/delete/9f615f24-f37d-4f1f-9658-7a0293992378
+description: ""
+url: http://localhost:8080/api/repair-skills/delete/9f615f24-f37d-4f1f-9658-7a0293992378
+method: DELETE
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Temporary Test Skill\"\r
+
+    }"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 10000

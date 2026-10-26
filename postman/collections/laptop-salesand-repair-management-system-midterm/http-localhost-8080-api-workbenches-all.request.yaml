@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/workbenches/all
+description: A2 - Workbenches - Get All
+url: http://localhost:8080/api/workbenches/all
+method: GET
+order: 16000

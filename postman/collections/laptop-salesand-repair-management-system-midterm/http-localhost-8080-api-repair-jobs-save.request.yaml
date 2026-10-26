@@ -1,0 +1,39 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-jobs/save
+description: ""
+url: http://localhost:8080/api/repair-jobs/save
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"receivedDate\": \"2026-11-18\",\r
+
+    \  \"status\": \"ABANDONED\",\r
+
+    \  \"laptopModel\": \"Acer Swift 3\",\r
+
+    \  \"issue\": \"Liquid damage to the motherboard\",\r
+
+    \  \"customer\": {\r
+
+    \    \"id\": \"7548760e-e407-44a1-a4d3-0f2b708cc563\"\r
+
+    \  },\r
+
+    \  \"technician\": {\r
+
+    \    \"id\": \"a42ee9ac-d411-42a5-8a6b-01fa0d0f42f3\"\r
+
+    \  }\r
+
+    }\r\n"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 3000

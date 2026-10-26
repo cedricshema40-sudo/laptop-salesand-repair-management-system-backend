@@ -1,0 +1,17 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/all
+description: A2 - Repair Skills - Get All
+url: http://localhost:8080/api/repair-skills/all
+method: GET
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"name\": \"Data Recovery\"\r
+
+    }\r
+
+    \  "
+order: 11000

@@ -1,0 +1,83 @@
+package rw.auca.laptop_salesand_repair_management_system.controller;
+
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import
+rw.auca.laptop_salesand_repair_management_system.Domain.Technician;
+import rw.auca.laptop_salesand_repair_management_system.service.TechnicianService;
+
+@RestController
+@RequestMapping("/api/technicians")
+public class TechnicianController {
+
+    private final TechnicianService technicianService;
+
+    public TechnicianController(TechnicianService technicianService) {
+        this.technicianService = technicianService;
+    }
+    @PostMapping("/save")
+    public ResponseEntity<?> saveTechnician(
+      @RequestBody Technician technician) {
+        technicianService.saveTechnician(technician);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                     .body("Technician saved successfully");
+      }
+      @GetMapping("/all")
+      public ResponseEntity<List<Technician>> getAllTechnicians(){
+        return ResponseEntity.ok(technicianService.getAllTechnicians());
+      }
+
+      @GetMapping("/{id}")
+       public ResponseEntity<?> getTechnicianById(
+            @PathVariable UUID id) {
+      Technician technician = technicianService.getTechnicianById(id);
+
+      if (technician == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                 .body("The technican with that id does not exist");
+      }
+      return ResponseEntity.ok(technician);
+            }
+
+@PutMapping("/update/{id}")
+public ResponseEntity<?> updateTechnician(
+      @PathVariable UUID id,
+      @RequestBody Technician updatedTechnician) {
+
+        Technician technician = technicianService.updateTechnician(id, updatedTechnician);
+
+        if(technician == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                   .body("The technician with that id does not exist");
+        }
+        return ResponseEntity.ok("Technician updated successfully");
+      }
+@DeleteMapping("/delete/{id}")
+public ResponseEntity<?> deleteTechnician(
+       @PathVariable UUID id) {
+
+        boolean deleted = technicianService.deleteTechnician(id);
+
+        if (!deleted) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                   .body("The technician with that id does not exist");
+        }
+        return ResponseEntity.ok("Technician deleted successfully");
+       }
+
+
+}

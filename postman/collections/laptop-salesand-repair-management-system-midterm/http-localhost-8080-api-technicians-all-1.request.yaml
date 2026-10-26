@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/technicians/all
+description: A2 - Technicians - Get All
+url: http://localhost:8080/api/technicians/all
+method: GET
+order: 20000

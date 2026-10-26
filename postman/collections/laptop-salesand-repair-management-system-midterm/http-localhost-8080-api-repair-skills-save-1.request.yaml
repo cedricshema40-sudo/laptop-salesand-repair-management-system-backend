@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/save
+description: ""
+url: http://localhost:8080/api/repair-skills/save
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"name\": \"Motherboard Repair\"\r
+
+    }\r
+
+    \  "
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 8000

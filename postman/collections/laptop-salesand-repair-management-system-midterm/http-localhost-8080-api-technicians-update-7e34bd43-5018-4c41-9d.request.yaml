@@ -1,0 +1,39 @@
+$kind: http-request
+name: http://localhost:8080/api/technicians/update/7e34bd43-5018-4c41-9ddb-a48a6312da6f
+description: A2 - Technicians - Update
+url: http://localhost:8080/api/technicians/update/7e34bd43-5018-4c41-9ddb-a48a6312da6f
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"firstName\": \"Patrick\",\r
+
+    \  \"lastName\": \"Mugisha\",\r
+
+    \  \"phone\": \"0788111001\",\r
+
+    \  \"workbench\": {\r
+
+    \    \"id\": \"dcf07c17-93a6-429f-9ab3-b858039ecda0\"\r
+
+    \  },\r
+
+    \  \"repairSkills\": [\r
+
+    \    {\r
+
+    \      \"id\": \"1c37f6d7-ef14-48f6-aff1-d5e275f505e0\"\r
+
+    \    },\r
+
+    \    {\r
+
+    \      \"id\": \"10608e23-d81c-4db9-8269-33e7968e41d9\"\r
+
+    \    }\r
+
+    \  ]\r
+
+    }"
+order: 22000

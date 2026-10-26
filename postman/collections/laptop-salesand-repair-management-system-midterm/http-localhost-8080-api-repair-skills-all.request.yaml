@@ -1,0 +1,12 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/all
+description: ""
+url: http://localhost:8080/api/repair-skills/all
+method: GET
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 2000

@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/1c37f6d7-ef14-48f6-aff1-d5e275f505e0
+description: A2 - Repair Skills - Create
+url: http://localhost:8080/api/repair-skills/save
+method: POST
+order: 15000

@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/repair-skills/1c37f6d7-ef14-48f6-aff1-d5e275f505e0
+description: A2 - Repair Skills - Delete
+url: http://localhost:8080/api/repair-skills/delete/4be3568d-6083-4b0e-8f5b-2d15dd00f144
+method: DELETE
+order: 14000

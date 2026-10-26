@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/technicians/7e34bd43-5018-4c41-9ddb-a48a6312da6f
+description: A2 - Technicians - Get by ID
+url: http://localhost:8080/api/technicians/7e34bd43-5018-4c41-9ddb-a48a6312da6f
+method: GET
+order: 21000

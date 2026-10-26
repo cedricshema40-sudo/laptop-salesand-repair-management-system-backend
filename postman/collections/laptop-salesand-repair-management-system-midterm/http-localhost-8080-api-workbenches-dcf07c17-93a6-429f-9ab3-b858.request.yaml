@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:8080/api/workbenches/dcf07c17-93a6-429f-9ab3-b858039ecda0
+description: A2 - Workbenches - Get by ID
+url: http://localhost:8080/api/workbenches/dcf07c17-93a6-429f-9ab3-b858039ecda0
+method: GET
+order: 17000
