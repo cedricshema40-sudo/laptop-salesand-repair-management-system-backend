@@ -52,4 +52,7 @@ public boolean deleteWorkbench(UUID id) {
            workbenchRepository.delete(existingWorkbench);
               return true ;
 }
+public List<Workbench> getFreeWorkbenches() {
+   return workbenchRepository.findFreeWorkbenches();
+}
 }

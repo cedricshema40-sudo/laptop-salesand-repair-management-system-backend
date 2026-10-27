@@ -50,5 +50,7 @@ public class RepairSkillService {
         repairSkillRepository.delete(existingSkill);
         return true;
    }
-
+ public List<RepairSkill> getUnusedRepairSkills() {
+    return repairSkillRepository.findUnusedRepairSkills();
+ }
 }

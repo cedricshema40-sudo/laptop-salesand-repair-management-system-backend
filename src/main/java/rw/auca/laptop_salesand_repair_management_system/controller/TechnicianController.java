@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import
@@ -78,6 +79,15 @@ public ResponseEntity<?> deleteTechnician(
         }
         return ResponseEntity.ok("Technician deleted successfully");
        }
-
+ @GetMapping("/by-repair-skill")
+ public ResponseEntity<List<Technician>>
+ getTechniciansByRepairSkill(
+       @RequestParam String name) {
+        
+        return ResponseEntity.ok(
+          technicianService.getTechniciansByRepairSkill(name));
+        
+       }
+ 
 
 }

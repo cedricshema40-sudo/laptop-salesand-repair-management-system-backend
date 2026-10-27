@@ -83,5 +83,11 @@ public ResponseEntity<?> getRepairSkillsById(
             }
             return ResponseEntity.ok("Repair skill deleted successfully");
      }
-
+   @GetMapping("/unused")
+   public ResponseEntity<List<RepairSkill>>
+   getUnusedRepairSkills() {
+    return ResponseEntity.ok(
+        repairSkillService.getUnusedRepairSkills());
+    
+   }
 }

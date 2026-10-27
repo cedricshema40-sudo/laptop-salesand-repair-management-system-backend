@@ -76,5 +76,10 @@ public class WorkbenchController {
          }
          return ResponseEntity.ok("Workbench deleted successfully");
        }
-
+    @GetMapping("/free")
+    public ResponseEntity<List<Workbench>> getFreeWorkbenches() {
+        return ResponseEntity.ok(
+           workbenchService.getFreeWorkbenches());
+        
+    }
 }

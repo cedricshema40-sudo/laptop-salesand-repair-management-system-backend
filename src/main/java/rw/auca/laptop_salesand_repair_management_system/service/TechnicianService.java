@@ -51,4 +51,8 @@ public class TechnicianService {
              technicianRepository.delete(existingTechnician);
               return true;
       }
+
+      public List<Technician> getTechniciansByRepairSkill(String name) {
+         return technicianRepository.findByRepairSkillName(name);
+      }
 }
