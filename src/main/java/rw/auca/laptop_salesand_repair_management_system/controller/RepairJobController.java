@@ -1,7 +1,9 @@
 package rw.auca.laptop_salesand_repair_management_system.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 
 import org.springframework.http.HttpStatus;
 import  org.springframework.http.ResponseEntity;
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
 import rw.auca.laptop_salesand_repair_management_system.service.RepairJobService;
-
+import 
+ rw.auca.laptop_salesand_repair_management_system.Domain.RepairStatus;
 
 @RestController
 @RequestMapping("/api/repair-jobs")
@@ -77,5 +81,26 @@ public ResponseEntity<?> deleteRepairJob(@PathVariable UUID id) {
     return ResponseEntity.ok("Repair job deleted successfully");
 }
 
+
+@GetMapping("/by-status")
+public ResponseEntity<List<RepairJob>> getRepairJobsByStatus(
+        @RequestParam RepairStatus status) {
+
+            return ResponseEntity.ok(
+                repairJobService.getRepairJobsByStatus(status));
+        }
+@GetMapping("/between")
+public ResponseEntity<List<RepairJob>>
+  getRepairJobsBetweenDates(
+       @RequestParam String start,
+       @RequestParam String end) {
+
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        return ResponseEntity.ok(
+               repairJobService.getRepairJobsBetweenDates(startDate, endDate));
+       }
+  
 
 }

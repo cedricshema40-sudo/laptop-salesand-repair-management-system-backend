@@ -1,12 +1,15 @@
 package rw.auca.laptop_salesand_repair_management_system.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
 
 import org.springframework.stereotype.Service;
 
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
+
 import rw.auca.laptop_salesand_repair_management_system.repository.RepairJobRepository;
 
 
@@ -50,4 +53,16 @@ public class RepairJobService {
          repairJobRepository.delete(existingRepairJob) ;
           return true;
  }
+  public List<RepairJob> getRepairJobsByStatus(
+    rw.auca.laptop_salesand_repair_management_system.Domain.RepairStatus status) {
+        return repairJobRepository 
+                    .findByStatusOrderByReceivedDateAsc(status);
+    }
+  public List<RepairJob> getRepairJobsBetweenDates(
+          LocalDate start, LocalDate end) {
+            return repairJobRepository
+
+        .findByReceivedDateBetweenOrderByReceivedDateAsc(start, end);
+          }
+  
 }
