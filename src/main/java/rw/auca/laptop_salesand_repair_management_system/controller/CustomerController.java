@@ -83,4 +83,17 @@ public ResponseEntity<?> deleteCustomer(@PathVariable UUID id) {
     }
     return ResponseEntity.ok("Customer deleted successfully");
 }
+@GetMapping("/of-technician/{technicianId}")
+public ResponseEntity<?> getCustomersofTechnician(
+      @PathVariable UUID technicianId) {
+
+        if (!customerService.technicianExists(technicianId)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                  .body("The technician with that id does not exist");
+        }
+        return ResponseEntity.ok(
+            customerService.getCustomersByTechnicianId(technicianId));
+        
+      }
+
 }

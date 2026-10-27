@@ -7,16 +7,22 @@ import org.springframework.stereotype.Service;
 
 import rw.auca.laptop_salesand_repair_management_system.Domain.Customer;
 import rw.auca.laptop_salesand_repair_management_system.repository.CustomerRepository;
+import 
 
+rw.auca.laptop_salesand_repair_management_system.repository.TechnicianRepository;
 @Service
-
 public class CustomerService {
+  private final CustomerRepository customerRepository;
+   private final TechnicianRepository technicianRepository;
 
-    private final CustomerRepository customerRepository;
+    public CustomerService(
+            CustomerRepository customerRepository,
+            TechnicianRepository technicianRepository) {
 
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+              this.customerRepository = customerRepository;
+              this.technicianRepository = technicianRepository;
+            }
+   
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save (customer);
     }
@@ -54,5 +60,12 @@ public class CustomerService {
       public List<Customer> getCustomersByLastName(String lastName) {
         return customerRepository
               .findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+      }
+      public List<Customer> getCustomersByTechnicianId(UUID technicianId) {
+        return 
+        customerRepository.findCustomersByTechnicianId(technicianId);
+      }
+      public boolean technicianExists(UUID technicianId) {
+        return technicianRepository.existsById(technicianId);
       }
 }
