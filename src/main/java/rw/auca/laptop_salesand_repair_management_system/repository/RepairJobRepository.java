@@ -19,5 +19,9 @@ public interface  RepairJobRepository
              List<RepairJob>
                findByReceivedDateBetweenOrderByReceivedDateAsc(
                    LocalDate start, LocalDate end);
+        boolean existsByTechnician_IdAndReceivedDateAndStatusNot(
+              UUID technicianId, LocalDate receivedDate,
+              RepairStatus status);
+        
 
           }

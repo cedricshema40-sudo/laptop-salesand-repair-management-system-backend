@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import  org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
@@ -33,13 +34,7 @@ public class RepairJobController {
 
         this.repairJobService = repairJobService;
     }
-    @PostMapping("/save")
-     public ResponseEntity<?> saveRepairJob(@RequestBody RepairJob repairJob) {
-        repairJobService.saveRepairJob(repairJob);
-
-        return ResponseEntity.status(HttpStatus.CREATED)
-                 .body("Repair job saved successfully");
-     }
+    
 @GetMapping("/all")
 public ResponseEntity<List<RepairJob>> getAllRepairJobs() {
     return ResponseEntity.ok(repairJobService.getAllRepairJobs());
@@ -101,6 +96,32 @@ public ResponseEntity<List<RepairJob>>
         return ResponseEntity.ok(
                repairJobService.getRepairJobsBetweenDates(startDate, endDate));
        }
-  
+@PostMapping("/save")
+public ResponseEntity<?> saveRepairJob(@RequestBody RepairJob repairJob) {
+  String message =
+   repairJobService.validateRepairJob(repairJob);
+
+  if (message != null) {
+    if (message.equals("Repair job date cannot be in the past")) {
+        return ResponseEntity.status(
+            HttpStatus.BAD_REQUEST).body(message);
+
+    } else if (message.equals("Technician already has a repair job on that date")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+
+    }else {
+         return ResponseEntity.status(
+            HttpStatus.BAD_REQUEST).body(message);
+        
+    }
+
+  } else {
+    repairJobService.saveRepairJob(repairJob);
+      return ResponseEntity.status(HttpStatus.CREATED)
+            .body("Repair job saved successfully");
+  }
+    
+       
+}
 
 }

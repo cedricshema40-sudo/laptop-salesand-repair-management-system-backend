@@ -11,7 +11,8 @@ import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
 
 import rw.auca.laptop_salesand_repair_management_system.repository.RepairJobRepository;
-
+import 
+rw.auca.laptop_salesand_repair_management_system.Domain.RepairStatus;
 
 @Service
 public class RepairJobService {
@@ -20,9 +21,6 @@ public class RepairJobService {
 
     public RepairJobService(RepairJobRepository repairJobRepository) {
         this.repairJobRepository = repairJobRepository;
-    }
-    public RepairJob saveRepairJob(RepairJob repairJob) {
-        return repairJobRepository.save(repairJob);
     }
     public List<RepairJob> getAllRepairJobs() {
         return repairJobRepository.findAll();
@@ -64,5 +62,35 @@ public class RepairJobService {
 
         .findByReceivedDateBetweenOrderByReceivedDateAsc(start, end);
           }
-  
-}
+    public RepairJob saveRepairJob(RepairJob repairJob) {
+        repairJob.setStatus(RepairStatus.RECEIVED);
+        return repairJobRepository.save(repairJob);
+    }
+    public String validateRepairJob(RepairJob repairJob) {
+         
+        if (repairJob.getReceivedDate() == null
+
+                || repairJob.getReceivedDate().isBefore(LocalDate.now())) {
+            return "Repair job date cannot be in the past";
+        }
+
+        if (repairJob.getTechnician().getId() == null
+                 || repairJob.getTechnician().getId() == null) {
+                    return "A technician must be selected";
+                 } 
+            
+        
+        boolean conflict = 
+
+    repairJobRepository.existsByTechnician_IdAndReceivedDateAndStatusNot(
+             repairJob.getTechnician().getId(),
+             repairJob.getReceivedDate(),
+             RepairStatus.ABANDONED);
+    
+    if (conflict) {
+        return "Technician  already has a repair job on that date";
+    }
+   return null;
+    }
+  }
+
