@@ -92,5 +92,38 @@ public class RepairJobService {
     }
    return null;
     }
+    public String updateRepairJobStatus(UUID id, RepairStatus newStatus) {
+
+        RepairJob repairJob = repairJobRepository.findById(id)
+                        .orElse(null);
+         
+        if (repairJob == null) {
+            return "The repair job with that id does not exist";
+        }
+
+        RepairStatus currentStatus = repairJob.getStatus();
+        boolean allowed = false;
+
+        if(currentStatus == RepairStatus.RECEIVED) {
+            if (newStatus == RepairStatus.IN_REPAIR
+                  || newStatus == RepairStatus.ABANDONED) {
+                    allowed = true;
+                  }
+        } else if (currentStatus == RepairStatus.IN_REPAIR) {
+            if(newStatus == RepairStatus.REPAIRED
+                   || newStatus == RepairStatus.ABANDONED) {
+
+                   }
+        }
+        if (!allowed) {
+            return "cannot change status from " + currentStatus
+                    + " to " +newStatus;
+        }
+
+        repairJob.setStatus(newStatus);
+        repairJobRepository.save(repairJob);
+
+        return "Repair job status updated successfully";
+    }
   }
 

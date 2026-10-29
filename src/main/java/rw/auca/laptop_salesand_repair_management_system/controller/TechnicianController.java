@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PatchMapping;
 
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.Technician;
@@ -89,5 +90,44 @@ public ResponseEntity<?> deleteTechnician(
         
        }
  
+@PutMapping("/{technicianId}/repair-skills/{repairSkillId}")
+public ResponseEntity<?> addRepairSkillToTechnician(
+  @PathVariable UUID technicianId,
+  @PathVariable UUID repairSkillId) {
+    String message = technicianService.addRepairSkillToTechnician(
+      technicianId, repairSkillId);
+
+      if (message.equals("The technician with that id does not exist")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+
+      } else if (message.equals("The repair skill with that id does not exist")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+      } else if (message.equals("The technician already has that repair skill")) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+
+      } else {
+        return ResponseEntity.ok(message);
+      }
+  }
+@PatchMapping("/{technicianId}/workbench")
+public ResponseEntity<?> changeTechnicianWorkbench(
+    @PathVariable UUID technicianId,
+    @RequestParam int benchNumber) {
+
+      String message =
+      technicianService.changeTechnicianWorkbench(
+        technicianId,benchNumber);
+      
+        if (message.equals("The technician with that id does not exist")) {
+          return 
+          ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+        } else if (message.equals(
+                  "The workbench with that bench number does not exist")) {
+                    return 
+                ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+                  } else {
+                    return ResponseEntity.ok(message);
+                  }
+    }
 
 }

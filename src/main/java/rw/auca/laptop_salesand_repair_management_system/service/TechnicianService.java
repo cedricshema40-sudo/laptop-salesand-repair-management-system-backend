@@ -1,21 +1,42 @@
 package rw.auca.laptop_salesand_repair_management_system.service;
 
 import java.util.List;
+
 import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import
  rw.auca.laptop_salesand_repair_management_system.Domain.Technician;
  import rw.auca.laptop_salesand_repair_management_system.repository.TechnicianRepository;
+import 
+rw.auca.laptop_salesand_repair_management_system.repository.RepairSkillRepository;
+import 
+rw.auca.laptop_salesand_repair_management_system.Domain.RepairSkill;
+import 
+rw.auca.laptop_salesand_repair_management_system.Domain.Workbench;
+import 
+rw.auca.laptop_salesand_repair_management_system.repository.WorkbenchRepository;
 
 @Service
 public class TechnicianService {
 
 
       private final TechnicianRepository technicianRepository;
+      
+      private final RepairSkillRepository repairSkillRepository;
 
-      public TechnicianService(TechnicianRepository technicianRepository) {
-        this.technicianRepository = technicianRepository;
+      private final WorkbenchRepository workbenchRepository;
+
+
+      public TechnicianService(
+         TechnicianRepository technicianRepository,
+         RepairSkillRepository repairSkillRepository,
+         WorkbenchRepository workbenchRepository) {
+
+            this.technicianRepository = technicianRepository;
+            this.repairSkillRepository = repairSkillRepository;
+            this.workbenchRepository = workbenchRepository;
+        
       }
      public Technician saveTechnician(Technician technician){
         return technicianRepository.save(technician);
@@ -55,4 +76,60 @@ public class TechnicianService {
       public List<Technician> getTechniciansByRepairSkill(String name) {
          return technicianRepository.findByRepairSkillName(name);
       }
+   public String addRepairSkillToTechnician(UUID technicianId, UUID repairSkillId) {
+
+      Technician technician =
+      technicianRepository.findById(technicianId)
+                 .orElse(null);
+
+                 if (technician == null) {
+                  return "The technician with that id does not exist";
+                 }
+
+         RepairSkill repairSkill = 
+         repairSkillRepository.findById(repairSkillId)
+                     .orElse(null);
+
+      if (repairSkill == null) {
+         return "The repair skill with that id does not exist";
+      }
+      if (technician.getRepairSkills().contains(repairSkill)) {
+         return "The technician already has that repair skill";
+      }
+      technician.getRepairSkills().add(repairSkill);
+      technicianRepository.save(technician);
+      return "Repair skill added to the technician";
+   }
+   public String changeTechnicianWorkbench(UUID technicianId, int benchNumber) {
+
+      Technician technician = 
+       technicianRepository.findById(technicianId)
+              .orElse(null);
+
+         if (technician == null) {
+            return "The technician with that id does not exist";
+         }
+      Workbench workbench =
+       workbenchRepository.findByBenchNumber(benchNumber) 
+            .orElse(null);
+
+         if (workbench == null) {
+            return "The workbench with that bench number does not exist";
+         }
+         for (Technician otherTechnician :
+            technicianRepository.findAll()) {
+               if (!otherTechnician.getId().equals(technicianId)
+                    && otherTechnician.getWorkbench() != null
+                    && otherTechnician.getWorkbench().getId()
+                           .equals(workbench.getId())) {
+
+                              return "That workbench is taken by another technician";
+                           }
+            }
+            technician.setWorkbench(workbench);
+            technicianRepository.save(technician);
+
+            return "Workbench changed successfully";
+         
+   }
 }

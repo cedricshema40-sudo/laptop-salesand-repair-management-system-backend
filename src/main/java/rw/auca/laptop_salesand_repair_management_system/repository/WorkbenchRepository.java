@@ -1,7 +1,9 @@
 package rw.auca.laptop_salesand_repair_management_system.repository;
 
 import java.util.List;
+
 import java.util.UUID;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +20,6 @@ public interface  WorkbenchRepository
             "ORDER BY w.benchNumber ASC")
 
             List<Workbench> findFreeWorkbenches();
-      
+         Optional<Workbench> findByBenchNumber (int benchNumber);
 
       }

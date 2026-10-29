@@ -123,5 +123,27 @@ public ResponseEntity<?> saveRepairJob(@RequestBody RepairJob repairJob) {
     
        
 }
+@PatchMapping("/{id}/status")
+public ResponseEntity<?> updateRepairJobStatus(
+     @PathVariable UUID id,
+     @RequestParam RepairStatus status) {
+
+        String message = repairJobService.updateRepairJobStatus(id, status);
+
+        if (message.equals("The repair job with that id does not exist")) {
+        
+            return 
+        ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+        } else if (message.startsWith("Cannot change status from"))
+
+   {
+            return 
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
+
+   }else {
+          return ResponseEntity.ok(message);
+        }
+     }
+
 
 }
