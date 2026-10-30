@@ -67,8 +67,12 @@ public ResponseEntity<?> updateRepairJob(
     }
 @DeleteMapping("/delete/{id}")
 public ResponseEntity<?> deleteRepairJob(@PathVariable UUID id) {
+    
+    if (repairJobService.hasPartReplacement(id)) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                   .body("That repair job has part replacements delete them first");
+    }
     boolean deleted = repairJobService.deleteRepairJob(id);
-
     if (!deleted) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body("The repair job with that id does not exist");

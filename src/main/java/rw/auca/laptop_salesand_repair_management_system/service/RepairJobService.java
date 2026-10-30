@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
-
+import rw.auca.laptop_salesand_repair_management_system.repository.PartReplacementRepository;
 import rw.auca.laptop_salesand_repair_management_system.repository.RepairJobRepository;
 import 
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairStatus;
@@ -19,9 +19,14 @@ public class RepairJobService {
 
     private final RepairJobRepository repairJobRepository;
 
-    public RepairJobService(RepairJobRepository repairJobRepository) {
+    private final PartReplacementRepository partReplacementRepository;
+    public RepairJobService(
+        RepairJobRepository repairJobRepository,
+        PartReplacementRepository partReplacementRepository) {
+
         this.repairJobRepository = repairJobRepository;
-    }
+        this.partReplacementRepository = partReplacementRepository;
+    } 
     public List<RepairJob> getAllRepairJobs() {
         return repairJobRepository.findAll();
     }
@@ -40,6 +45,10 @@ public class RepairJobService {
         existingRepairJob.setTechnician(updatedRepairJob.getTechnician());
 
         return repairJobRepository.save(existingRepairJob);
+    }
+    public boolean hasPartReplacement(UUID repairJobId) {
+        return 
+        partReplacementRepository.existsByRepairJob_Id(repairJobId);
     }
  public boolean deleteRepairJob(UUID id) {
     RepairJob existingRepairJob = repairJobRepository.findById(id)
