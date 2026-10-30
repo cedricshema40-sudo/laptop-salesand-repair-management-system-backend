@@ -131,7 +131,7 @@ public class RepairJobService {
         } else if (currentStatus == RepairStatus.IN_REPAIR) {
             if(newStatus == RepairStatus.REPAIRED
                    || newStatus == RepairStatus.ABANDONED) {
-
+            allowed = true;
                    }
         }
         if (!allowed) {
