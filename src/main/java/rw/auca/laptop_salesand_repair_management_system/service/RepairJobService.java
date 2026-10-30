@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 
 import org.springframework.stereotype.Service;
 
@@ -27,8 +30,15 @@ public class RepairJobService {
         this.repairJobRepository = repairJobRepository;
         this.partReplacementRepository = partReplacementRepository;
     } 
+    public Page<RepairJob> getRepairJobsPage(Pageable pageable) {
+        return repairJobRepository.findAll(pageable);
+        
+    }
     public List<RepairJob> getAllRepairJobs() {
         return repairJobRepository.findAll();
+    }
+    public Page<RepairJob> getRepairJobs(Pageable pageable) {
+        return repairJobRepository.findAll(pageable);
     }
     public RepairJob getRepairJobById(UUID id) {
         return repairJobRepository.findById(id) .orElse(null);

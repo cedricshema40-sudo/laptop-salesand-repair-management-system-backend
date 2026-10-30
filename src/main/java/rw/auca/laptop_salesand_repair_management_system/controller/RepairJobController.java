@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import  org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -100,6 +101,16 @@ public ResponseEntity<List<RepairJob>>
         return ResponseEntity.ok(
                repairJobService.getRepairJobsBetweenDates(startDate, endDate));
        }
+
+       @GetMapping("/page")
+
+       public ResponseEntity<Page<RepairJob>> getRepairJobsPage(
+            Pageable pageable) {
+
+                return ResponseEntity.ok(
+                   repairJobService.getRepairJobsPage(pageable));
+            }
+       
 @PostMapping("/save")
 public ResponseEntity<?> saveRepairJob(@RequestBody RepairJob repairJob) {
   String message =
