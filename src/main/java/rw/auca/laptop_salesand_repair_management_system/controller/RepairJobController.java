@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import  org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -161,4 +162,22 @@ public ResponseEntity<?> updateRepairJobStatus(
      }
 
 
+     @GetMapping("/stats/by-status")
+     public ResponseEntity<List<Object[]>> getRepairJobStatsByStatus() {
+
+        return ResponseEntity.ok(
+            repairJobService.getRepairJobStatsByStatus());
+        
+     }
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<String> cancelRepairJobsForAbsentTechnician(
+        @RequestParam UUID technicianId,
+        @RequestParam 
+        @DateTimeFormat(iso =DateTimeFormat.ISO.DATE) LocalDate date) {
+
+            int updated = repairJobService.cancelRepairJobsForTechnician(technicianId, date);
+
+            return ResponseEntity.ok(updated + "repair jobs cancelled");
+        }
+    
 }

@@ -6,12 +6,10 @@ import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-
 import org.springframework.stereotype.Service;
-
 import
 rw.auca.laptop_salesand_repair_management_system.Domain.RepairJob;
+import rw.auca.laptop_salesand_repair_management_system.controller.CustomerController;
 import rw.auca.laptop_salesand_repair_management_system.repository.PartReplacementRepository;
 import rw.auca.laptop_salesand_repair_management_system.repository.RepairJobRepository;
 import 
@@ -25,7 +23,7 @@ public class RepairJobService {
     private final PartReplacementRepository partReplacementRepository;
     public RepairJobService(
         RepairJobRepository repairJobRepository,
-        PartReplacementRepository partReplacementRepository) {
+        PartReplacementRepository partReplacementRepository, CustomerController customerController) {
 
         this.repairJobRepository = repairJobRepository;
         this.partReplacementRepository = partReplacementRepository;
@@ -143,6 +141,22 @@ public class RepairJobService {
         repairJobRepository.save(repairJob);
 
         return "Repair job status updated successfully";
+    }
+    
+       
+    
+   
+    
+    public List<Object[]> getRepairJobStatsByStatus() {
+        return repairJobRepository.countRepairJobsByStatus();
+    }
+    public int cancelRepairJobsForTechnician(UUID technicianId, LocalDate date) {
+        return repairJobRepository.cancelRepairJobsForTechnician(
+                  technicianId,
+                  date,
+                  RepairStatus.ABANDONED,
+                  RepairStatus.REPAIRED);
+        
     }
   }
 
