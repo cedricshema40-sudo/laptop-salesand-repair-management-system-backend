@@ -1,34 +1,32 @@
-\# Laptop Sales and Repair Management System
+&#x20;                  **Laptop Sales and Repair Management System**
 
 
 
-\## Student Information
+
+
+&#x20;Name:SHEMA CEDRICK
+
+Student ID:27639
+
+Course:INSY 8322 – Web Technology and Internet
+
+Institution:Adventist University of Central Africa (AUCA)
 
 
 
-\- \*\*Student Name:\*\* SHEMA CEDRICK
-
-\- \*\*Student ID:\*\* 27639
-
-\- \*\*Course:\*\* INSY 8322 – Web Technology and Internet
-
-\- \*\*Institution:\*\* Adventist University of Central Africa (AUCA)
+\## Project Overview
 
 
 
-\## Project Description
+The Laptop Sales and Repair Management System is a REST API developed using Java and Spring Boot. It manages customers, technicians, workbenches, repair skills, laptop repair jobs, and replacement parts.
 
 
 
-The Laptop Sales and Repair Management System is a Spring Boot REST API developed to manage customers, technicians, workbenches, repair skills, laptop repair jobs, and part replacements.
+The application uses PostgreSQL to store and manage data.
 
 
 
-The system uses PostgreSQL for database management.
-
-
-
-\## Technologies Used
+\## Technologies
 
 
 
@@ -46,87 +44,39 @@ The system uses PostgreSQL for database management.
 
 
 
-\## Database Configuration
+\## Database
 
 
 
-1\. Install and start PostgreSQL.
-
-2\. Create a database named:
+The database name is:
 
 
 
-&#x20;  `laptop\_salesand\_repair\_management\_system`
+`laptop\_salesand\_repair\_management\_system`
 
 
 
-3\. Configure your database username, password, and connection URL in `src/main/resources/application.properties`.
+The database connection settings are configured in:
 
 
 
-Example configuration:
+`src/main/resources/application.properties`
 
 
 
-```properties
-
-spring.datasource.url=jdbc:postgresql://localhost:5432/laptop\_salesand\_repair\_management\_system
-
-spring.datasource.username=postgres
-
-spring.datasource.password=postgres
+\## Running the Application
 
 
 
-spring.jpa.hibernate.ddl-auto=update
+1\. Make sure PostgreSQL is running.
 
-spring.jpa.show-sql=true
+2\. Create the database named `laptop\_salesand\_repair\_management\_system`.
 
+3\. Configure the PostgreSQL connection in `application.properties`.
 
+4\. Open the project directory in a terminal.
 
-server.port=8080
-
-```
-
-
-
-Replace the username and password with your local PostgreSQL credentials.
-
-
-
-\## How to Run the Project
-
-
-
-1\. Clone the repository:
-
-
-
-```bash
-
-git clone https://github.com/cedricshema40-sudo/laptop-salesand-repair-management-system-backend.git
-
-```
-
-
-
-2\. Open the project directory:
-
-
-
-```bash
-
-cd laptop-salesand-repair-management-system-backend
-
-```
-
-
-
-3\. Configure PostgreSQL as described above.
-
-
-
-4\. Run the application on Windows:
+5\. Run the application using:
 
 
 
@@ -138,7 +88,7 @@ cd laptop-salesand-repair-management-system-backend
 
 
 
-5\. The API will be available at:
+The application runs at:
 
 
 
@@ -146,11 +96,15 @@ cd laptop-salesand-repair-management-system-backend
 
 
 
-\## Testing the API
+\## API Testing
 
 
 
-Import the Postman collection located in the project root:
+The REST API can be tested using Postman.
+
+
+
+The Postman collection is available in the project root:
 
 
 
@@ -158,11 +112,11 @@ Import the Postman collection located in the project root:
 
 
 
-Use Postman to test the available API endpoints.
+\## Source Code
 
 
 
-\## GitHub Repository
+GitHub repository:
 
 
 
