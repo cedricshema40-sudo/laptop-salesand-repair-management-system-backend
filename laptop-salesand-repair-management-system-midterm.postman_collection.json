@@ -1,0 +1,1043 @@
+{
+  "info": {
+    "name": "laptop-salesand-repair-management-system-midterm",
+    "description": "AUCA INSY 8322 Midterm Postman collection. Organized by assignment parts A2 through F and bonus. Part B-F requests will return errors until their matching requirements are implemented. Confirm relationship JSON shapes against your entities before sending POST bodies.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "A2 - Repair Skill CRUD",
+      "item": [
+        {
+          "name": "A2 - Repair Skill - Save (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Temporary Test Skill\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Part A2 CRUD. Replace placeholder relationships with existing entity objects/IDs as required by your actual controller/entity JSON shape."
+          }
+        },
+        {
+          "name": "A2 - Repair Skill - Get All (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Repair Skill - Get by ID (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/{{repairSkillId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "{{repairSkillId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Repair Skill - Update (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/update/{{repairSkillId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "update",
+                "{{repairSkillId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Temporary Test Skill Updated\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Use an existing test record ID stored in the collection variable."
+          }
+        },
+        {
+          "name": "A2 - Repair Skill - Delete (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/delete/{{repairSkillId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "delete",
+                "{{repairSkillId}}"
+              ]
+            },
+            "description": "Destructive test: use only a temporary test record ID, not seed data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2 - Workbench CRUD",
+      "item": [
+        {
+          "name": "A2 - Workbench - Save (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"benchNumber\": 5,\n  \"name\": \"Temporary Test Workbench\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Part A2 CRUD. Replace placeholder relationships with existing entity objects/IDs as required by your actual controller/entity JSON shape."
+          }
+        },
+        {
+          "name": "A2 - Workbench - Get All (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Workbench - Get by ID (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/{{workbenchId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "{{workbenchId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Workbench - Update (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/update/{{workbenchId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "update",
+                "{{workbenchId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"benchNumber\": 5,\n  \"name\": \"Temporary Test Workbench Updated\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Use an existing test record ID stored in the collection variable."
+          }
+        },
+        {
+          "name": "A2 - Workbench - Delete (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/delete/{{workbenchId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "delete",
+                "{{workbenchId}}"
+              ]
+            },
+            "description": "Destructive test: use only a temporary test record ID, not seed data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2 - Technician CRUD",
+      "item": [
+        {
+          "name": "A2 - Technician - Save (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"Technician\",\n  \"phone\": \"0788999001\",\n  \"workbench\": null,\n  \"repairSkills\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Part A2 CRUD. Replace placeholder relationships with existing entity objects/IDs as required by your actual controller/entity JSON shape."
+          }
+        },
+        {
+          "name": "A2 - Technician - Get All (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Technician - Get by ID (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "{{technicianId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Technician - Update (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/update/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "update",
+                "{{technicianId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Test Updated\",\n  \"lastName\": \"Technician\",\n  \"phone\": \"0788999001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Use an existing test record ID stored in the collection variable."
+          }
+        },
+        {
+          "name": "A2 - Technician - Delete (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/delete/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "delete",
+                "{{technicianId}}"
+              ]
+            },
+            "description": "Destructive test: use only a temporary test record ID, not seed data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2 - Customer CRUD",
+      "item": [
+        {
+          "name": "A2 - Customer - Save (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Test\",\n  \"lastName\": \"Customer\",\n  \"phone\": \"0788999002\",\n  \"email\": \"test.customer@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Part A2 CRUD. Replace placeholder relationships with existing entity objects/IDs as required by your actual controller/entity JSON shape."
+          }
+        },
+        {
+          "name": "A2 - Customer - Get All (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Customer - Get by ID (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/{{customerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "{{customerId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Customer - Update (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/update/{{customerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "update",
+                "{{customerId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Test Updated\",\n  \"lastName\": \"Customer\",\n  \"phone\": \"0788999002\",\n  \"email\": \"test.customer@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Use an existing test record ID stored in the collection variable."
+          }
+        },
+        {
+          "name": "A2 - Customer - Delete (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/delete/{{customerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "delete",
+                "{{customerId}}"
+              ]
+            },
+            "description": "Destructive test: use only a temporary test record ID, not seed data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2 - Repair Job CRUD",
+      "item": [
+        {
+          "name": "A2 - Repair Job - Save (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receivedDate\": \"2026-10-26\",\n  \"status\": \"RECEIVED\",\n  \"laptopModel\": \"Test Laptop\",\n  \"issue\": \"Test issue\",\n  \"customer\": null,\n  \"technician\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Part A2 CRUD. Replace placeholder relationships with existing entity objects/IDs as required by your actual controller/entity JSON shape."
+          }
+        },
+        {
+          "name": "A2 - Repair Job - Get All (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "all"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Repair Job - Get by ID (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/{{repairJobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "{{repairJobId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "A2 - Repair Job - Update (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/update/{{repairJobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "update",
+                "{{repairJobId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receivedDate\": \"2026-10-26\",\n  \"laptopModel\": \"Test Laptop Updated\",\n  \"issue\": \"Updated test issue\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Use an existing test record ID stored in the collection variable."
+          }
+        },
+        {
+          "name": "A2 - Repair Job - Delete (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/delete/{{repairJobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "delete",
+                "{{repairJobId}}"
+              ]
+            },
+            "description": "Destructive test: use only a temporary test record ID, not seed data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Part B - Derived Query Methods",
+      "item": [
+        {
+          "name": "B1 - Customers by last name (ignore case, first name ascending)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/by-last-name?lastName=nsengiyumva"
+            }
+          }
+        },
+        {
+          "name": "B2 - Repair jobs by status (received date ascending)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/by-status?status=RECEIVED"
+            }
+          }
+        },
+        {
+          "name": "B3 - Repair jobs between dates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/between?start=2026-10-01&end=2026-10-31"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Part C - JPQL Queries",
+      "item": [
+        {
+          "name": "C1 - Technicians by repair skill",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/by-repair-skill?name=screen"
+            }
+          }
+        },
+        {
+          "name": "C2 - Free workbenches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/workbenches/free",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "workbenches",
+                "free"
+              ]
+            }
+          }
+        },
+        {
+          "name": "C3 - Unused repair skills",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-skills/unused",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-skills",
+                "unused"
+              ]
+            }
+          }
+        },
+        {
+          "name": "C4 - Customers of technician",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/of-technician/{{technicianId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "of-technician",
+                "{{technicianId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Part D - Business Rules",
+      "item": [
+        {
+          "name": "D1 - Save repair job (valid date and technician availability)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receivedDate\": \"2026-10-27\",\n  \"status\": \"ABANDONED\",\n  \"laptopModel\": \"Demo Laptop\",\n  \"issue\": \"Demo issue\",\n  \"customer\": null,\n  \"technician\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Expected new jobs to start as RECEIVED. For relationship JSON, supply actual customer and technician objects according to your entity mapping."
+          }
+        },
+        {
+          "name": "D1 - Error case: past repair date",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receivedDate\": \"2020-01-01\",\n  \"status\": \"RECEIVED\",\n  \"laptopModel\": \"Old Laptop\",\n  \"issue\": \"Past date test\",\n  \"customer\": null,\n  \"technician\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Expected 400: Repair job date cannot be in the past."
+          }
+        },
+        {
+          "name": "D2 - Change repair job status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/{{repairJobId}}/status?status=IN_REPAIR"
+            }
+          }
+        },
+        {
+          "name": "D2 - Error case: invalid status transition",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/{{repairJobId}}/status?status=REPAIRED"
+            }
+          }
+        },
+        {
+          "name": "D3 - Add repair skill to technician",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/repair-skills/{{repairSkillId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "technicians",
+                "{{technicianId}}",
+                "repair-skills",
+                "{{repairSkillId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "D4 - Change technician workbench",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/technicians/{{technicianId}}/workbench?benchNumber=4"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Part E - Part Replacements",
+      "item": [
+        {
+          "name": "E1 - Save part replacement for repaired job",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/part-replacements/save?repairJobId={{repairedRepairJobId}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partName\": \"Laptop Screen\",\n  \"notes\": \"Replacement during repair\",\n  \"quantity\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "E2 - Find part replacements by customer phone",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/part-replacements/customer/0788123456",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "part-replacements",
+                "customer",
+                "0788123456"
+              ]
+            }
+          }
+        },
+        {
+          "name": "E3 - Delete part replacement",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/part-replacements/delete/{{partReplacementId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "part-replacements",
+                "delete",
+                "{{partReplacementId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Part F - Reports and Bulk Update",
+      "item": [
+        {
+          "name": "F1 - Repair job count by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/stats/by-status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "repair-jobs",
+                "stats",
+                "by-status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "F2 - Cancel jobs for technician on date",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/cancel-day?technicianId={{technicianId}}&date=2026-10-20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bonus Features",
+      "item": [
+        {
+          "name": "Bonus 1 - Dashboard summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Bonus 2 - Paginated repair jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/repair-jobs/page?page=0&size=5&sort=receivedDate,desc"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "repairSkillId",
+      "value": "1c37f6d7-ef14-48f6-aff1-d5e275f505e0"
+    },
+    {
+      "key": "workbenchId",
+      "value": "dcf07c17-93a6-429f-9ab3-b858039ecda0"
+    },
+    {
+      "key": "technicianId",
+      "value": "7e34bd43-5018-4c41-9ddb-a48a6312da6f"
+    },
+    {
+      "key": "customerId",
+      "value": "b9599b65-5695-48d8-b218-c80721ff3710"
+    },
+    {
+      "key": "repairJobId",
+      "value": "9475f12f-94e5-4fd0-8f9a-74e2faf409d5"
+    },
+    {
+      "key": "repairedRepairJobId",
+      "value": "c23a0079-2881-46f2-9d4b-2edd8d39a0ee"
+    },
+    {
+      "key": "partReplacementId",
+      "value": "REPLACE_WITH_CREATED_PART_REPLACEMENT_ID"
+    }
+  ]
+}
